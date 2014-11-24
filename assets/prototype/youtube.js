@@ -59,7 +59,6 @@ function onEngagePlayerStateChange(newState) {
 
 $(function () {
     $('#callToAction').hide();
-//    $('#touchVideo, #engageVideo').css('height', '0');
 
     $('#play').click(function () {
         $('.teaser').hide();
@@ -81,29 +80,7 @@ $(function () {
             touchVideo.pauseVideo();
             engageVideo.playVideo();
         }
-
-
-//        if ($(this).attr('id') == "popTouch") {
-//            touchVideo.playVideo();
-//            engageVideo.pauseVideo();
-//        }
-//        else {
-//            touchVideo.pauseVideo();
-//            engageVideo.playVideo();
-//        }
     });
-
-//    $('#popEngage').click(function () {
-//        touchVideo.pauseVideo();
-//        engageVideo.playVideo();
-//        alert('test');
-//    });
-//
-//    $('#popTouch').click(function () {
-//        engageVideo.pauseVideo();
-//        touchVideo.playVideo();
-//    });
-
 });
 
 // When page is fully loaded
