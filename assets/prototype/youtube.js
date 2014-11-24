@@ -86,6 +86,4 @@ $(function () {
 // When page is fully loaded
 $(window).load(function () {
     $('#play').toggleClass('activePlay');
-
-
 });

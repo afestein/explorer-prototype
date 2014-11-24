@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="vagrant">
+
+    <target name="reload">
+        <exec executable="vagrant">
+            <arg value="reload"/>
+        </exec>
+    </target>
+
+    <target name="halt">
+        <exec executable="vagrant">
+            <arg value="halt"/>
+        </exec>
+    </target>
+
+    <target name="up">
+        <exec executable="vagrant">
+            <arg value="up"/>
+        </exec>
+    </target>
+
+</project>

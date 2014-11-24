@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="git">
+
+    <target name="push">
+        <exec executable="git">
+            <arg value="push"/>
+        </exec>
+    </target>
+
+    <target name="pull">
+        <exec executable="git">
+            <arg value="pull"/>
+        </exec>
+    </target>
+
+</project>

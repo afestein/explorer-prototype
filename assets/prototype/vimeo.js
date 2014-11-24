@@ -57,3 +57,8 @@ $(function () {
         touch.api('play');
     });
 });
+
+// When page is fully loaded
+$(window).load(function () {
+    $('#play').toggleClass('activePlay');
+});
