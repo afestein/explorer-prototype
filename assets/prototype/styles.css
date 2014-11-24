@@ -110,10 +110,7 @@ h1 {
     text-shadow: #333 1px 1px 1px;
     left: -50px;
     top: -50px;
-    /*display: none;*/
     opacity:0;
-
-
     transition: all 0.5s ease;
 }
 
@@ -128,9 +125,8 @@ h1 {
     cursor: pointer;
 }
 
-.activePop.activePop {
-    /*z-index:11;*/
-    /*display:block;*/
+.videoPop.activePop {
+    z-index:11;
     opacity:1;
 }
 

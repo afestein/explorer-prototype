@@ -8,105 +8,7 @@
 
         <!-- Scripts -->
         <script type="text/javascript" src="assets/prototype/jquery.min.js"></script>
-        <!--    <script type="text/javascript" src="assets/prototype/youtube.js"></script>-->
-
-        <script type="text/javascript">
-
-            // YouTube API
-            var tag = document.createElement('script');
-            tag.src = "https://www.youtube.com/player_api";
-            var firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-            // Set up videos
-            var touchVideo;
-            var engageVideo;
-            function onYouTubePlayerAPIReady() {
-                var height = '658';
-                var width = '1170';
-                touchVideo = new YT.Player('touchVideo', {
-                    height: height,
-                    width: width,
-                    videoId: '6oqhNNW1exE',
-                    playerVars: {rel: 0},
-                    events: {
-                        'onReady': onEngagePlayerReady,
-                        'onStateChange': onEngagePlayerStateChange
-                    }
-                });
-                engageVideo = new YT.Player('engageVideo', {
-                    height: height,
-                    width: width,
-                    videoId: 'W7aYRUQtIfw',
-                    playerVars: {rel: 0}
-                });
-            }
-
-            function onEngagePlayerReady(event) {
-                setInterval(checkPlayer, 1000);
-            }
-
-            function checkPlayer() {
-                var touchProgress = Math.round(touchVideo.getCurrentTime() / touchVideo.getDuration() * 100);
-                var engageProgress = Math.round(engageVideo.getCurrentTime() / engageVideo.getDuration() * 100);
-
-                // Deploy calls to action at milestones
-                if (touchProgress > 1 && !$('.videoPop.popEngage').attr('style')) {
-                    $('.videoPop.popEngage').fadeIn();
-                }
-
-                if (engageProgress > 75) {
-                    $('#callToAction').fadeIn();
-                }
-            }
-
-            function onEngagePlayerStateChange(newState) {
-                // On video end
-                if (newState.data == 0) {
-                    $('.video iframe').toggleClass('inActive');
-                    $('.videoPop').toggleClass('activePop');
-                    engageVideo.playVideo();
-                }
-//                -1 (unstarted), 0 (ended), 1 (playing), 2 (paused), 3 (buffering), 5 (video cued).
-            }
-
-            /** UI Stuff **/
-
-            $(document).ready(function () {
-                $('#callToAction').hide();
-                $('#touchVideo, #engageVideo').css('height', '0');
-
-                $('#play').click(function () {
-                    $('.teaser').hide();
-                    $('#videoContainer, #touchVideo, #engageVideo').removeAttr('style');
-                    $('#videoContainer').css('overflow','visible');
-                    touchVideo.playVideo();
-                });
-
-                $('.videoPop').click(function () {
-                    $('.video iframe').toggleClass('inActive');
-                    $('.videoPop').toggleClass('activePop');
-                });
-
-                $('.videoPop.popEngage').click(function () {
-                    touchVideo.pauseVideo();
-                    engageVideo.playVideo();
-                });
-
-                $('.videoPop.popTouch').click(function () {
-                    engageVideo.pauseVideo();
-                    touchVideo.playVideo();
-                });
-            });
-
-            // When page is fully loaded
-            $(window).load(function () {
-                $('#play').toggleClass('activePlay');
-            });
-
-        </script>
-
-
+        <script type="text/javascript" src="assets/prototype/youtube.js"></script>
     </head>
     <body>
         <div class="table wrapper">
@@ -120,12 +22,12 @@
             <div class="row video">
                 <div class="cell">
                     <div id="videoContainer">
-                        <div class="videoPop popEngage activePop">
+                        <div class="videoPop" id="popEngage">
                             <img src="assets/prototype/img/pop4.jpg" alt="popup"/>
                             <div class="playMini"></div>
                             <p>IS YOUR LIFE AS FULFILLING<br/>AS IT COULD BE?</p>
                         </div>
-                        <div class="videoPop popTouch">
+                        <div class="videoPop" id="popTouch">
                             <img src="assets/prototype/img/pop3.jpg" alt="popup"/>
                             <div class="playMini"></div>
                             <p>IT CHANGES EVERYTHING</p>
