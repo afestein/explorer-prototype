@@ -50,6 +50,12 @@ h1 {
     background: #EFEDED url(img/play.png) 31px 23px no-repeat;
     margin: 81px auto;
     border-radius: 44px;
+    opacity:0;
+    transition: all 0.75s ease;
+}
+
+#play.activePlay {
+    opacity:1;
 }
 
 #play:hover {
@@ -84,6 +90,16 @@ h1 {
     overflow:hidden;
 }
 
+.video iframe {
+    top:0;
+    left:0;
+    position:absolute;
+}
+
+.video iframe.inActive {
+    height:0;
+}
+
 .videoPop {
     position: absolute;
     width: 300px;
@@ -94,11 +110,11 @@ h1 {
     text-shadow: #333 1px 1px 1px;
     left: -50px;
     top: -50px;
-    display: none;
-}
+    /*display: none;*/
+    opacity:0;
 
-.video iframe.inActive {
-    height:0;
+
+    transition: all 0.5s ease;
 }
 
 .videoPop img {
@@ -110,6 +126,12 @@ h1 {
 
 .videoPop:hover {
     cursor: pointer;
+}
+
+.activePop.activePop {
+    /*z-index:11;*/
+    /*display:block;*/
+    opacity:1;
 }
 
 .videoPop.popEngage {

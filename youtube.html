@@ -37,7 +37,7 @@
                 engageVideo = new YT.Player('engageVideo', {
                     height: height,
                     width: width,
-                    videoId: 'sR-PJL1tKeU',
+                    videoId: 'W7aYRUQtIfw',
                     playerVars: {rel: 0}
                 });
             }
@@ -51,7 +51,7 @@
                 var engageProgress = Math.round(engageVideo.getCurrentTime() / engageVideo.getDuration() * 100);
 
                 // Deploy calls to action at milestones
-                if (touchProgress > 1) {
+                if (touchProgress > 1 && !$('.videoPop.popEngage').attr('style')) {
                     $('.videoPop.popEngage').fadeIn();
                 }
 
@@ -63,8 +63,8 @@
             function onEngagePlayerStateChange(newState) {
                 // On video end
                 if (newState.data == 0) {
-//                    $('.video iframe').toggle();
-                    $('.videoPop').toggle();
+                    $('.video iframe').toggleClass('inActive');
+                    $('.videoPop').toggleClass('activePop');
                     engageVideo.playVideo();
                 }
 //                -1 (unstarted), 0 (ended), 1 (playing), 2 (paused), 3 (buffering), 5 (video cued).
@@ -76,22 +76,16 @@
                 $('#callToAction').hide();
                 $('#touchVideo, #engageVideo').css('height', '0');
 
-                // Can't use a simple display:none because that breaks the API in Firefox
-//                var touchHeight = $('#touchVideo').attr('height');
-//                var engageHeight = $('#engageVideo').attr('height');
-
                 $('#play').click(function () {
                     $('.teaser').hide();
-//                    $('#videoContainer, #touchVideo, #engageVideo').css('height', touchHeight);
                     $('#videoContainer, #touchVideo, #engageVideo').removeAttr('style');
-//                    $('#engageVideo').hide();
                     $('#videoContainer').css('overflow','visible');
                     touchVideo.playVideo();
                 });
 
                 $('.videoPop').click(function () {
                     $('.video iframe').toggleClass('inActive');
-                    $('.videoPop').toggle();
+                    $('.videoPop').toggleClass('activePop');
                 });
 
                 $('.videoPop.popEngage').click(function () {
@@ -103,6 +97,11 @@
                     engageVideo.pauseVideo();
                     touchVideo.playVideo();
                 });
+            });
+
+            // When page is fully loaded
+            $(window).load(function () {
+                $('#play').toggleClass('activePlay');
             });
 
         </script>
@@ -121,13 +120,13 @@
             <div class="row video">
                 <div class="cell">
                     <div id="videoContainer">
-                        <div class="videoPop popEngage">
-                            <img src="assets/prototype/img/pop1.jpg" alt="popup"/>
+                        <div class="videoPop popEngage activePop">
+                            <img src="assets/prototype/img/pop4.jpg" alt="popup"/>
                             <div class="playMini"></div>
                             <p>IS YOUR LIFE AS FULFILLING<br/>AS IT COULD BE?</p>
                         </div>
                         <div class="videoPop popTouch">
-                            <img src="assets/prototype/img/pop2.jpg" alt="popup"/>
+                            <img src="assets/prototype/img/pop3.jpg" alt="popup"/>
                             <div class="playMini"></div>
                             <p>IT CHANGES EVERYTHING</p>
                         </div>
