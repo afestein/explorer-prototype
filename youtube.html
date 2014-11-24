@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Show2Me Prototype</title>
+        <link rel="stylesheet" type="text/css" href="assets/prototype/styles.css"/>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- Scripts -->
+        <script type="text/javascript" src="assets/prototype/jquery.min.js"></script>
+        <!--    <script type="text/javascript" src="assets/prototype/youtube.js"></script>-->
+
+        <script type="text/javascript">
+
+            // YouTube API
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/player_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            // Set up videos
+            var touchVideo;
+            var engageVideo;
+            function onYouTubePlayerAPIReady() {
+                var height = '658';
+                var width = '1170';
+                touchVideo = new YT.Player('touchVideo', {
+                    height: height,
+                    width: width,
+                    videoId: '6oqhNNW1exE',
+                    playerVars: {rel: 0},
+                    events: {
+                        'onReady': onEngagePlayerReady,
+                        'onStateChange': onEngagePlayerStateChange
+                    }
+                });
+                engageVideo = new YT.Player('engageVideo', {
+                    height: height,
+                    width: width,
+                    videoId: 'sR-PJL1tKeU',
+                    playerVars: {rel: 0}
+                });
+            }
+
+            function onEngagePlayerReady(event) {
+                setInterval(checkPlayer, 1000);
+            }
+
+            function checkPlayer() {
+                var touchProgress = Math.round(touchVideo.getCurrentTime() / touchVideo.getDuration() * 100);
+                var engageProgress = Math.round(engageVideo.getCurrentTime() / engageVideo.getDuration() * 100);
+
+                // Deploy calls to action at milestones
+                if (touchProgress > 1) {
+                    $('.videoPop.popEngage').fadeIn();
+                }
+
+                if (engageProgress > 75) {
+                    $('#callToAction').fadeIn();
+                }
+            }
+
+            function onEngagePlayerStateChange(newState) {
+                // On video end
+                if (newState.data == 0) {
+//                    $('.video iframe').toggle();
+                    $('.videoPop').toggle();
+                    engageVideo.playVideo();
+                }
+//                -1 (unstarted), 0 (ended), 1 (playing), 2 (paused), 3 (buffering), 5 (video cued).
+            }
+
+            /** UI Stuff **/
+
+            $(document).ready(function () {
+                $('#callToAction').hide();
+                $('#touchVideo, #engageVideo').css('height', '0');
+
+                // Can't use a simple display:none because that breaks the API in Firefox
+//                var touchHeight = $('#touchVideo').attr('height');
+//                var engageHeight = $('#engageVideo').attr('height');
+
+                $('#play').click(function () {
+                    $('.teaser').hide();
+//                    $('#videoContainer, #touchVideo, #engageVideo').css('height', touchHeight);
+                    $('#videoContainer, #touchVideo, #engageVideo').removeAttr('style');
+//                    $('#engageVideo').hide();
+                    $('#videoContainer').css('overflow','visible');
+                    touchVideo.playVideo();
+                });
+
+                $('.videoPop').click(function () {
+                    $('.video iframe').toggleClass('inActive');
+                    $('.videoPop').toggle();
+                });
+
+                $('.videoPop.popEngage').click(function () {
+                    touchVideo.pauseVideo();
+                    engageVideo.playVideo();
+                });
+
+                $('.videoPop.popTouch').click(function () {
+                    engageVideo.pauseVideo();
+                    touchVideo.playVideo();
+                });
+            });
+
+        </script>
+
+
+    </head>
+    <body>
+        <div class="table wrapper">
+            <div class="row teaser">
+                <div class="cell content">
+                    <h1>It Changes Everything</h1>
+                    <div id="play"></div>
+                    <p id="videoText">Throughout history, people have sung about the mysterious love of God. If his love is so great, why don't we see it on earth? They sing of freedom, but all I see is hunger, sickness, pain. This world is broken. Where's the proof that God loves us? A friend of mine told me a story about how God came to earth as a man, to rescue us...</p>
+                </div>
+            </div>
+            <div class="row video">
+                <div class="cell">
+                    <div id="videoContainer">
+                        <div class="videoPop popEngage">
+                            <img src="assets/prototype/img/pop1.jpg" alt="popup"/>
+                            <div class="playMini"></div>
+                            <p>IS YOUR LIFE AS FULFILLING<br/>AS IT COULD BE?</p>
+                        </div>
+                        <div class="videoPop popTouch">
+                            <img src="assets/prototype/img/pop2.jpg" alt="popup"/>
+                            <div class="playMini"></div>
+                            <p>IT CHANGES EVERYTHING</p>
+                        </div>
+                        <div id="touchVideo"></div>
+                        <div id="engageVideo" class="inActive"></div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell">
+                    <div class="table" id="callToAction">
+                        <div class="row">
+                            <div class="cell">
+                                Yes!
+                            </div>
+                            <div class="cell" style="border:1px solid #CCC; border-width:0 1px;">
+                                Ask a Question
+                            </div>
+                            <div class="cell">
+                                Spread the news
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell footer">
+                    Footer goes here
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

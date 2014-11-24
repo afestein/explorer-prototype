@@ -1,0 +1,155 @@
+/* Layout */
+
+html, body, .wrapper {
+    height: 100%;
+}
+
+.clear {
+    clear:both;
+}
+
+body {
+    background: url(img/bg.jpg) no-repeat;
+    background-size: cover;
+    margin: 0;
+}
+
+.table {
+    display: table;
+    border-spacing: 15px;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+}
+
+.wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+.content, .touch .cell {
+    vertical-align: middle;
+}
+
+h1 {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 80px;
+    line-height: 80px;
+    letter-spacing: 3px;
+}
+
+#play {
+    height: 88px;
+    width: 88px;
+    background: #EFEDED url(img/play.png) 31px 23px no-repeat;
+    margin: 81px auto;
+    border-radius: 44px;
+}
+
+#play:hover {
+    background-color: #000;
+    cursor: pointer;
+}
+
+#videoText {
+    width: 600px;
+    margin: 0 auto;
+    line-height: 2em;
+}
+
+.footer {
+    background: #E1E1E1;
+    height: 40px;
+    line-height: 40px;
+    margin: 15px;
+    color: #A1A1A1;
+}
+
+.video .cell {
+    padding-top: 160px;
+    margin: 0 auto;
+}
+
+#videoContainer {
+    position: relative;
+    width: 1170px;
+    margin: 0 auto;
+    height:0;
+    overflow:hidden;
+}
+
+.videoPop {
+    position: absolute;
+    width: 300px;
+    height: 169px;
+    z-index: 10;
+    background: #888;
+    font-weight: bold;
+    text-shadow: #333 1px 1px 1px;
+    left: -50px;
+    top: -50px;
+    display: none;
+}
+
+.video iframe.inActive {
+    height:0;
+}
+
+.videoPop img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.videoPop:hover {
+    cursor: pointer;
+}
+
+.videoPop.popEngage {
+    display: none;
+}
+
+.videoPop:hover #playMini {
+    background-color: #000;
+}
+
+.playMini {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background: #EFEDED url(img/playMini.png) 21px 15px no-repeat;
+    margin: 33px auto 0 auto;
+}
+
+#callToAction {
+    width: 1170px;
+    margin: 0 auto;
+    border-spacing: 0;
+}
+
+#callToAction .cell {
+    background: #E1E1E1;
+    color: #333132;
+    padding: 20px;
+    width: 33%;
+}
+
+#callToAction .cell:hover {
+    background: #2ECB70;
+    color: #FFF;
+    cursor: pointer;
+}
+
+/* Typography */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #FFF;
+}
