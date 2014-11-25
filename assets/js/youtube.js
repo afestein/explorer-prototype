@@ -1,4 +1,4 @@
-// YouTube API
+/*** YouTube API ***/
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/player_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -36,7 +36,7 @@ function checkPlayer() {
     var touchProgress = Math.round(touchVideo.getCurrentTime() / touchVideo.getDuration() * 100);
     var engageProgress = Math.round(engageVideo.getCurrentTime() / engageVideo.getDuration() * 100);
 
-    // Deploy calls to action at milestones
+    // Activate calls to action at progress milestones
     if (touchProgress > 1 && $('#engageVideo').hasClass('inActive')) {
         $('.videoPop#popEngage').addClass('activePop');
     }
@@ -58,18 +58,11 @@ function onEngagePlayerStateChange(newState) {
 /** UI Stuff **/
 
 $(function () {
-    $('#callToAction').hide();
-
     $('#play').click(function () {
-        $('.teaser').hide();
-        $('#videoContainer, #touchVideo, #engageVideo').removeAttr('style');
-        $('#videoContainer').css('overflow', 'visible');
         touchVideo.playVideo();
     });
 
     $('.videoPop').click(function () {
-        $('.video iframe').toggleClass('inActive');
-        $('.videoPop').toggleClass('activePop');
 
         if ($(this).attr('id') == "popTouch") {
             engageVideo.pauseVideo();
@@ -81,9 +74,4 @@ $(function () {
             engageVideo.playVideo();
         }
     });
-});
-
-// When page is fully loaded
-$(window).load(function () {
-    $('#play').toggleClass('activePlay');
 });

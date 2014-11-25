@@ -3,13 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Show2Me Prototype</title>
-        <link rel="stylesheet" type="text/css" href="assets/prototype/styles.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/styles.css"/>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-        <!-- Scripts -->
-        <script type="text/javascript" src="assets/prototype/jquery.min.js"></script>
-        <script type="text/javascript" src="assets/prototype/froogaloop2.min.js"></script>
-        <script type="text/javascript" src="assets/prototype/vimeo.js"></script>
     </head>
     <body>
         <div class="table wrapper">
@@ -22,19 +17,19 @@
             </div>
             <div class="row video">
                 <div class="cell">
-                    <div id="videoPopContainer">
+                    <div id="videoContainer">
                         <div class="videoPop" id="popEngage">
-                            <img src="assets/prototype/img/pop1.jpg" alt="popup" />
+                            <img src="assets/img/pop1.jpg" alt="popup" />
                             <div class="playMini"></div>
                             <p>IS YOUR LIFE AS FULFILLING<br/>AS IT COULD BE?</p>
                         </div>
                         <div class="videoPop" id="popTouch">
-                            <img src="assets/prototype/img/pop2.jpg" alt="popup" />
+                            <img src="assets/img/pop2.jpg" alt="popup" />
                             <div class="playMini"></div>
                             <p>IT CHANGES EVERYTHING</p>
                         </div>
                         <iframe id="touchVideo" src="//player.vimeo.com/video/92439949?api=1&player_id=touchVideo" width="1170" height="658" frameborder="0"></iframe>
-                        <iframe id="engageVideo" src="//player.vimeo.com/video/79400310?api=1&player_id=engageVideo" width="1170" height="658" frameborder="0"></iframe>
+                        <iframe id="engageVideo" class="inActive" src="//player.vimeo.com/video/79400310?api=1&player_id=engageVideo" width="1170" height="658" frameborder="0"></iframe>
                     </div>
                 </div>
             </div>
@@ -61,5 +56,10 @@
                 </div>
             </div>
         </div>
+        <!-- Scripts -->
+        <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/js/froogaloop2.min.js"></script>
+        <script type="text/javascript" src="assets/js/common.js"></script>
+        <script type="text/javascript" src="assets/js/vimeo.js"></script>
     </body>
 </html>
