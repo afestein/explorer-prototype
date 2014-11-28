@@ -4,11 +4,19 @@ $(window).load(function () {
 });
 
 $(function () {
-    $('.row.callToAction, .row.video').hide();
+    $('.callToAction').hide();
+//    $('.row.teaser').hide();
+
+
+
+//    $('.video').css('height','0');
 
     $('#play').click(function () {
         $('.teaser').hide();
-        $('#videoContainer').css('overflow', 'visible');
+//        $('#videoContainer').css('overflow', 'visible');
+//        $('.video').css('overflow', 'visible');
+        $('.row.teaser').hide();
+        $('.row.video').removeAttr('style');
     });
 
     $('.videoPop').click(function () {

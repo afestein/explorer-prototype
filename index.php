@@ -22,55 +22,62 @@
       </div>
       <div class="row video">
         <div class="col-lg-12">
-          <div id="videoContainer">
-            <div class="videoPop" id="popEngage">
-              <img src="assets/img/pop4.jpg" alt="popup"/>
-              <div class="playMini"></div>
-              <p>IS YOUR LIFE AS FULFILLING<br/>AS IT COULD BE?</p>
+          <div id="container">
+
+            <div class="row videoContainer">
+              <div class="col-lg-12">
+
+                <div class="videoPop" id="popEngage">
+                  <img src="assets/img/pop4.jpg" alt="popup"/>
+                  <div class="playMini"></div>
+                  <p>IS YOUR LIFE AS FULFILLING<br/>AS IT COULD BE?</p>
+                </div>
+                <div class="videoPop" id="popTouch">
+                  <img src="assets/img/pop3.jpg" alt="popup"/>
+                  <div class="playMini"></div>
+                  <p>IT CHANGES EVERYTHING</p>
+                </div>
+
+                <?php if ($_GET['touch'] == 'youtube'): ?>
+                  <div id="touchVideo"></div>
+                <?php endif; ?>
+
+                <?php if ($_GET['touch'] == 'vimeo'): ?>
+                  <iframe id="touchVideo" src="//player.vimeo.com/video/92439949?api=1&player_id=touchVideo" width="1170" height="658" frameborder="0"></iframe>
+                <?php endif; ?>
+
+                <?php if ($_GET['engage'] == 'youtube'): ?>
+                  <div id="engageVideo" class="inActive"></div>
+                <?php endif; ?>
+
+                <?php if ($_GET['engage'] == 'vimeo'): ?>
+                  <iframe id="engageVideo" class="inActive" src="//player.vimeo.com/video/79400310?api=1&player_id=engageVideo" width="1170" height="658" frameborder="0"></iframe>
+                <?php endif; ?>
+
+              </div>
+
             </div>
-            <div class="videoPop" id="popTouch">
-              <img src="assets/img/pop3.jpg" alt="popup"/>
-              <div class="playMini"></div>
-              <p>IT CHANGES EVERYTHING</p>
+
+            <div class="row callToAction">
+              <div class="col-lg-4">
+                Yes!
+              </div>
+              <div class="col-lg-4" style="border:1px solid #CCC; border-width:0 1px;">
+                Ask a Question
+              </div>
+              <div class="col-lg-4">
+                Spread the news
+              </div>
             </div>
 
-            <?php if ($_GET['touch'] == 'youtube'): ?>
-              <div id="touchVideo"></div>
-            <?php endif; ?>
-
-            <?php if ($_GET['touch'] == 'vimeo'): ?>
-              <iframe id="touchVideo" src="//player.vimeo.com/video/92439949?api=1&player_id=touchVideo" width="1170" height="658" frameborder="0"></iframe>
-            <?php endif; ?>
-
-            <?php if ($_GET['engage'] == 'youtube'): ?>
-              <div id="engageVideo" class="inActive"></div>
-            <?php endif; ?>
-
-            <?php if ($_GET['engage'] == 'vimeo'): ?>
-              <iframe id="engageVideo" class="inActive" src="//player.vimeo.com/video/79400310?api=1&player_id=engageVideo" width="1170" height="658" frameborder="0"></iframe>
-            <?php endif; ?>
             <div class="clear"></div>
           </div>
-          <div class="clear"></div>
         </div>
-      </div>
-      <div class="row callToAction">
-        <div class="col-lg-4">
-          Yes!
-        </div>
-        <div class="col-lg-4" style="border:1px solid #CCC; border-width:0 1px;">
-          Ask a Question
-        </div>
-        <div class="col-lg-4">
-          Spread the news
-        </div>
-      </div>
-      <div class="row footer">
-        <div class="col-lg-12">
-          Footer goes here
-        </div>
+
       </div>
     </div>
+
+    <div class="footer">Footer goes here</div>
 
     <!-- Scripts -->
     <script type="text/javascript" src="assets/bower_components/jquery/dist/jquery.min.js"></script>

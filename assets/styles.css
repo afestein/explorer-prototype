@@ -12,6 +12,7 @@ body {
     background: url(img/bg.jpg) no-repeat;
     background-size: cover;
     margin: 0;
+    overflow:hidden;
 }
 
 .table {
@@ -65,27 +66,44 @@ h1 {
     line-height: 2em;
 }
 
-.row.teaser, .row.video {
-    height: 95%;
+.teaser, .video {
+    height: 100%;
+}
+
+.video {
+    overflow:hidden;
 }
 
 .footer {
     background: #E1E1E1;
-    height: 5%;
+    height: 40px;
+    line-height: 40px;
     color: #A1A1A1;
     text-align: center;
+    position:absolute;
+    bottom:0;
+    width:100%;
 }
 
-.video div {
-    padding-top: 160px;
-    margin: 0 auto;
+.video > div {
+    height:100%;
 }
 
-#videoContainer {
+.videoContainer {
     position: relative;
+    height:816px;
+    padding-top:5%;
+    /*overflow: hidden;*/
+}
+
+.videoContainer, .callToAction {
     width: 1170px;
     margin: 0 auto;
-    overflow: hidden;
+
+}
+
+.video #container {
+    height:100%;
 }
 
 .video iframe {
@@ -110,6 +128,7 @@ h1 {
     top: -50px;
     opacity: 0;
     transition: all 0.5s ease;
+    text-align:center;
 }
 
 .videoPop img {
@@ -146,6 +165,7 @@ h1 {
 
 .callToAction {
     /*width: 1170px;*/
+    text-align: center;
 }
 
 .callToAction div {
