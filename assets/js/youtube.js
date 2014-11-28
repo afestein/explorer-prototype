@@ -42,7 +42,7 @@ function checkPlayer() {
     }
 
     if (engageProgress > 75) {
-        $('#callToAction').fadeIn();
+        $('.callToAction').fadeIn();
     }
 }
 

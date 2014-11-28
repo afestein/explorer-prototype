@@ -27,7 +27,7 @@ $(function () {
 
         else {
             if (timePercentComplete > 75) {
-                $('#callToAction').fadeIn();
+                $('.callToAction').fadeIn();
             }
         }
     }

@@ -4,7 +4,7 @@ $(window).load(function () {
 });
 
 $(function () {
-    $('.row.callToAction, .row.video').hide();
+    $('#callToAction').hide();
 
     $('#play').click(function () {
         $('.teaser').hide();

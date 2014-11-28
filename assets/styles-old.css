@@ -1,11 +1,11 @@
 /* Layout */
 
-html, body, .container-fluid {
+html, body, .wrapper {
     height: 100%;
 }
 
 .clear {
-    clear: both;
+    clear:both;
 }
 
 body {
@@ -16,19 +16,24 @@ body {
 
 .table {
     display: table;
+    border-spacing: 15px;
+}
+
+.row {
+    display: table-row;
 }
 
 .cell {
     display: table-cell;
 }
 
-.content, .table {
-    height:100%;
+.wrapper {
+    width: 100%;
+    text-align: center;
 }
 
-.content .cell {
+.content, .touch .cell {
     vertical-align: middle;
-    text-align: center;
 }
 
 h1 {
@@ -37,7 +42,6 @@ h1 {
     font-size: 80px;
     line-height: 80px;
     letter-spacing: 3px;
-    font-weight: bold;
 }
 
 #play {
@@ -46,12 +50,12 @@ h1 {
     background: #EFEDED url(img/play.png) 31px 23px no-repeat;
     margin: 81px auto;
     border-radius: 44px;
-    opacity: 0;
+    opacity:0;
     transition: all 0.75s ease;
 }
 
 #play.activePlay {
-    opacity: 1;
+    opacity:1;
 }
 
 #play:hover {
@@ -65,18 +69,15 @@ h1 {
     line-height: 2em;
 }
 
-.row.teaser, .row.video {
-    height: 95%;
-}
-
 .footer {
     background: #E1E1E1;
-    height: 5%;
+    height: 40px;
+    line-height: 40px;
+    margin: 15px;
     color: #A1A1A1;
-    text-align: center;
 }
 
-.video div {
+.video .cell {
     padding-top: 160px;
     margin: 0 auto;
 }
@@ -85,17 +86,17 @@ h1 {
     position: relative;
     width: 1170px;
     margin: 0 auto;
-    overflow: hidden;
+    overflow:hidden;
 }
 
 .video iframe {
-    top: 0;
-    left: 0;
-    position: absolute;
+    top:0;
+    left:0;
+    position:absolute;
 }
 
 .video iframe.inActive {
-    height: 0;
+    height:0;
 }
 
 .videoPop {
@@ -108,7 +109,7 @@ h1 {
     text-shadow: #333 1px 1px 1px;
     left: -50px;
     top: -50px;
-    opacity: 0;
+    opacity:0;
     transition: all 0.5s ease;
 }
 
@@ -124,8 +125,8 @@ h1 {
 }
 
 .videoPop.activePop {
-    z-index: 11;
-    opacity: 1;
+    z-index:11;
+    opacity:1;
 }
 
 .videoPop.popEngage {
@@ -144,17 +145,20 @@ h1 {
     margin: 33px auto 0 auto;
 }
 
-.callToAction {
-    /*width: 1170px;*/
+#callToAction {
+    width: 1170px;
+    margin: 0 auto;
+    border-spacing: 0;
 }
 
-.callToAction div {
+#callToAction .cell {
     background: #E1E1E1;
     color: #333132;
     padding: 20px;
+    width: 33%;
 }
 
-.callToAction div:hover {
+#callToAction .cell:hover {
     background: #2ECB70;
     color: #FFF;
     cursor: pointer;
@@ -165,5 +169,4 @@ h1 {
 body {
     font-family: 'Open Sans', sans-serif;
     color: #FFF;
-    font-size:14px;
 }
