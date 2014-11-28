@@ -42,20 +42,36 @@ h1 {
 }
 
 #play {
-    height: 88px;
-    width: 88px;
-    background: #EFEDED url(img/play.png) 31px 23px no-repeat;
     margin: 81px auto;
-    border-radius: 44px;
-    opacity: 0;
-    transition: all 0.75s ease;
 }
 
-#play.activePlay {
+#play, #playButton {
+    height: 88px;
+    width: 88px;
+}
+
+#playButton {
+    opacity: 0;
+    transition: all 0.75s ease;
+    background: #EFEDED url(img/play.png) 31px 23px no-repeat;
+    border-radius: 44px;
+    position: relative;
+    z-index: 1;
+}
+
+.fa-spinner {
+    font-size:30px;
+    line-height:88px;
+    position: relative;
+    top:-88px;
+    z-index:0;
+}
+
+#playButton.activePlay {
     opacity: 1;
 }
 
-#play:hover {
+#playButton:hover {
     background-color: #000;
     cursor: pointer;
 }
