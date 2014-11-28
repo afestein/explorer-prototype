@@ -2,17 +2,17 @@
 
 $(function () {
     var iframe1 = $('#touchVideo')[0],
-        touch = $f(iframe1),
+        vimeoTouchPlayer = $f(iframe1),
         iframe2 = $('#engageVideo')[0],
-        engage = $f(iframe2);
+        vimeoEngagePlayer = $f(iframe2);
 
     // When the player is ready, add listeners
-    touch.addEvent('ready', function () {
-        touch.addEvent('playProgress', onPlayProgress);
-        touch.addEvent('finish', onTouchFinish);
+    vimeoTouchPlayer.addEvent('ready', function () {
+        vimeoTouchPlayer.addEvent('playProgress', onPlayProgress);
+        vimeoTouchPlayer.addEvent('finish', onVimeoTouchPlayerFinish);
     });
-    engage.addEvent('ready', function () {
-        engage.addEvent('playProgress', onPlayProgress);
+    vimeoEngagePlayer.addEvent('ready', function () {
+        vimeoEngagePlayer.addEvent('playProgress', onPlayProgress);
     });
 
     function onPlayProgress(data, id) {
@@ -32,28 +32,28 @@ $(function () {
         }
     }
 
-    function onTouchFinish(data, id) {
+    function onVimeoTouchPlayerFinish(data, id) {
         $('.video iframe').toggleClass('inActive');
         $('.videoPop').toggleClass('activePop');
-        engage.api('play');
+        vimeoEngagePlayer.api('play');
     }
 
     /** UI Stuff **/
 
     $('#play').click(function () {
-        touch.api('play');
+        vimeoTouchPlayer.api('play');
     });
 
     $('.videoPop').click(function () {
 
         if ($(this).attr('id') == "popTouch") {
-            engage.api('pause');
-            touch.api('play');
+            vimeoEngagePlayer.api('pause');
+            vimeoTouchPlayer.api('play');
         }
 
         if ($(this).attr('id') == "popEngage") {
-            touch.api('pause');
-            engage.api('play');
+            vimeoTouchPlayer.api('pause');
+            vimeoEngagePlayer.api('play');
         }
     });
 });

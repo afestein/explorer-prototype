@@ -32,12 +32,12 @@
               <div class="col-lg-12">
 
                 <div class="videoPop" id="popEngage">
-                  <img src="assets/img/pop4.jpg" alt="popup"/>
+                  <img src="assets/img/<?php print $_GET['touch'];?>Pop1.jpg" alt="popup"/>
                   <div class="playMini"></div>
                   <p>IS YOUR LIFE AS FULFILLING<br/>AS IT COULD BE?</p>
                 </div>
                 <div class="videoPop" id="popTouch">
-                  <img src="assets/img/pop3.jpg" alt="popup"/>
+                  <img src="assets/img/<?php print $_GET['engage'];?>Pop2.jpg" alt="popup"/>
                   <div class="playMini"></div>
                   <p>IT CHANGES EVERYTHING</p>
                 </div>
@@ -48,6 +48,10 @@
 
                 <?php if ($_GET['touch'] == 'vimeo'): ?>
                   <iframe id="touchVideo" src="//player.vimeo.com/video/92439949?api=1&player_id=touchVideo" width="1170" height="658" frameborder="0"></iframe>
+                <?php endif; ?>
+
+                <?php if ($_GET['touch'] == 'youku'): ?>
+                  <div id="touchVideo" style="width:1170px;height:658px"></div>
                 <?php endif; ?>
 
                 <?php if ($_GET['engage'] == 'vimeo'): ?>
@@ -101,6 +105,13 @@
 
       <script type="text/javascript" src="assets/bower_components/froogaloop/froogaloop.min.js"></script>
       <script type="text/javascript" src="assets/js/vimeo.js"></script>
+
+    <?php elseif ($_GET['touch'] == 'youku'): ?>
+
+      <script type="text/javascript" src="http://player.youku.com/jsapi">
+        <?php include('assets/js/youku-api.js');?>
+      </script>
+      <script type="text/javascript" src="assets/js/youku-ui.js"></script>
 
     <?php endif; ?>
 
