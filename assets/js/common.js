@@ -1,8 +1,4 @@
-$(window).load(function () {
-    // Only allow play when all the API stuff has loaded
-    $('#playButton').toggleClass('activePlay');
-});
-
+// JS shared regardless of provider
 $(function () {
     $('.callToAction').hide();
 
@@ -17,3 +13,7 @@ $(function () {
         $('.videoPop').toggleClass('activePop');
     });
 });
+
+function showPlayButton() {
+    $('#playButton').fadeIn('slow');
+}

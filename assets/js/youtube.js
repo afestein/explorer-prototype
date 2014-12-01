@@ -29,6 +29,8 @@ function onYouTubePlayerAPIReady() {
 }
 
 function onEngagePlayerReady(event) {
+    // Show play button when player is ready
+    showPlayButton();
     setInterval(checkPlayer, 1000);
 }
 

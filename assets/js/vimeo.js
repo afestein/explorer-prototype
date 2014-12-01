@@ -10,9 +10,7 @@ $(function () {
     vimeoTouchPlayer.addEvent('ready', function () {
         vimeoTouchPlayer.addEvent('playProgress', onPlayProgress);
         vimeoTouchPlayer.addEvent('finish', onVimeoTouchPlayerFinish);
-    });
-    vimeoEngagePlayer.addEvent('ready', function () {
-        vimeoEngagePlayer.addEvent('playProgress', onPlayProgress);
+        showPlayButton();
     });
 
     function onPlayProgress(data, id) {

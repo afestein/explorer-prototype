@@ -12,7 +12,7 @@ body {
     background: url(img/bg.jpg) no-repeat;
     background-size: cover;
     margin: 0;
-    /*overflow:hidden;*/
+    overflow: hidden;
 }
 
 .table {
@@ -24,7 +24,7 @@ body {
 }
 
 .content, .table {
-    height:100%;
+    height: 100%;
 }
 
 .content .cell {
@@ -43,15 +43,16 @@ h1 {
 
 #play {
     margin: 81px auto;
+    position: relative;
 }
 
-#play, #playButton {
+#play, #playButton, .fa-spinner {
     height: 88px;
     width: 88px;
 }
 
 #playButton {
-    opacity: 0;
+    display: none;
     transition: all 0.75s ease;
     background: #EFEDED url(img/play.png) 31px 23px no-repeat;
     border-radius: 44px;
@@ -60,16 +61,13 @@ h1 {
 }
 
 .fa-spinner {
-    font-size:30px;
-    line-height:88px;
-    position: relative;
-    top:-88px;
-    z-index:0;
+    font-size: 30px;
+    line-height: 88px;
+    z-index: 0;
     animation-duration: 1s;
-}
-
-#playButton.activePlay {
-    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #playButton:hover {
@@ -97,19 +95,19 @@ h1 {
     line-height: 40px;
     color: #A1A1A1;
     text-align: center;
-    position:absolute;
-    bottom:0;
-    width:100%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .video > div {
-    height:100%;
+    height: 100%;
 }
 
 .videoContainer {
     position: relative;
-    height:816px;
-    padding-top:5%;
+    height: 816px;
+    padding-top: 5%;
     /*overflow: hidden;*/
 }
 
@@ -120,7 +118,7 @@ h1 {
 }
 
 .video #container {
-    height:100%;
+    height: 100%;
 }
 
 .video iframe {
@@ -145,7 +143,7 @@ h1 {
     top: -50px;
     opacity: 0;
     transition: all 0.5s ease;
-    text-align:center;
+    text-align: center;
 }
 
 .videoPop img {
@@ -202,5 +200,5 @@ h1 {
 body {
     font-family: 'Open Sans', sans-serif;
     color: #FFF;
-    font-size:14px;
+    font-size: 14px;
 }
