@@ -1,6 +1,6 @@
 // JS shared regardless of provider
 
-var engageMilestone = 1;
+var engageMilestone = 0.5;
 var decideMilestone = 75;
 
 $(function () {
