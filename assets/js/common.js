@@ -1,10 +1,11 @@
 // JS shared regardless of provider
 
-var engageMilestone = 0.5;
+var engageMilestone = 5;
 var decideMilestone = 75;
 
 $(function () {
     $('.callToAction').hide();
+    $('#engageVideo').addClass('engageLoad');
 
     $('#play').click(function () {
         $('.teaser').hide();
@@ -15,6 +16,7 @@ $(function () {
     $('.videoPop').click(function () {
         $('.video iframe').toggleClass('inActive');
         $('.videoPop').toggleClass('activePop');
+        $('#engageVideo').removeClass('engageLoad');
     });
 });
 
