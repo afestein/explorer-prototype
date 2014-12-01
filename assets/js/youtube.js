@@ -16,8 +16,8 @@ function onYouTubePlayerAPIReady() {
         videoId: '6oqhNNW1exE',
         playerVars: {rel: 0},
         events: {
-            'onReady': onEngagePlayerReady,
-            'onStateChange': onEngagePlayerStateChange
+            'onReady': onYoutubeEngagePlayerReady,
+            'onStateChange': onYoutubeEngagePlayerStateChange
         }
     });
     engageVideo = new YT.Player('engageVideo', {
@@ -28,27 +28,27 @@ function onYouTubePlayerAPIReady() {
     });
 }
 
-function onEngagePlayerReady(event) {
+function onYoutubeEngagePlayerReady(event) {
     // Show play button when player is ready
     showPlayButton();
-    setInterval(checkPlayer, 1000);
+    setInterval(checkYoutubePlayer, 2000);
 }
 
-function checkPlayer() {
-    var touchProgress = Math.round(touchVideo.getCurrentTime() / touchVideo.getDuration() * 100);
-    var engageProgress = Math.round(engageVideo.getCurrentTime() / engageVideo.getDuration() * 100);
+function checkYoutubePlayer() {
+    var touchYoutubeProgress = Math.round(touchVideo.getCurrentTime() / touchVideo.getDuration() * 100);
+    var engageYoutubeProgress = Math.round(engageVideo.getCurrentTime() / engageVideo.getDuration() * 100);
 
     // Activate calls to action at progress milestones
-    if (touchProgress > 1 && $('#engageVideo').hasClass('inActive')) {
+    if (touchYoutubeProgress > engageMilestone && $('#engageVideo').hasClass('inActive')) {
         $('.videoPop#popEngage').addClass('activePop');
     }
 
-    if (engageProgress > 75) {
+    if (engageYoutubeProgress > decideMilestone) {
         $('.callToAction').fadeIn();
     }
 }
 
-function onEngagePlayerStateChange(newState) {
+function onYoutubeEngagePlayerStateChange(newState) {
     // On video end
     if (newState.data == 0) {
         $('.video iframe').toggleClass('inActive');

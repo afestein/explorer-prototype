@@ -12,19 +12,22 @@ $(function () {
         vimeoTouchPlayer.addEvent('finish', onVimeoTouchPlayerFinish);
         showPlayButton();
     });
+    vimeoEngagePlayer.addEvent('ready', function () {
+        vimeoEngagePlayer.addEvent('playProgress', onPlayProgress);
+    });
 
     function onPlayProgress(data, id) {
         var timePercentComplete = Math.round((data.percent) * 100);
 
         // Activate calls to action at progress milestones
         if (id == "touchVideo") {
-            if (timePercentComplete > 1) {
+            if (timePercentComplete > engageMilestone) {
                 $('.videoPop#popEngage').addClass('activePop');
             }
         }
 
         else {
-            if (timePercentComplete > 75) {
+            if (timePercentComplete > decideMilestone) {
                 $('.callToAction').fadeIn();
             }
         }
