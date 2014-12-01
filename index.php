@@ -20,6 +20,7 @@
                 <i class="fa fa-spinner fa-spin"></i>
               </div>
               <p id="videoText">Throughout history, people have sung about the mysterious love of God. If his love is so great, why don't we see it on earth? They sing of freedom, but all I see is hunger, sickness, pain. This world is broken. Where's the proof that God loves us? A friend of mine told me a story about how God came to earth as a man, to rescue us...</p>
+<!--              <a href="#" onclick="YoukuTouchPlayer.playVideo();">Play!</a>-->
             </div>
           </div>
         </div>
@@ -90,6 +91,8 @@
       </div>
     </div>
 
+
+
     <div class="footer">Footer goes here</div>
 
     <!-- Scripts -->
@@ -108,9 +111,7 @@
 
     <?php elseif ($_GET['touch'] == 'youku'): ?>
 
-      <script type="text/javascript" src="http://player.youku.com/jsapi">
-        <?php include('assets/js/youku-api.js');?>
-      </script>
+      <script type="text/javascript" src="http://player.youku.com/jsapi"><?php include('assets/js/youku-api.js');?></script>
       <script type="text/javascript" src="assets/js/youku-ui.js"></script>
 
     <?php endif; ?>

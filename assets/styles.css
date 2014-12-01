@@ -12,7 +12,7 @@ body {
     background: url(img/bg.jpg) no-repeat;
     background-size: cover;
     margin: 0;
-    overflow:hidden;
+    /*overflow:hidden;*/
 }
 
 .table {
@@ -65,6 +65,7 @@ h1 {
     position: relative;
     top:-88px;
     z-index:0;
+    animation-duration: 1s;
 }
 
 #playButton.activePlay {
@@ -87,7 +88,7 @@ h1 {
 }
 
 .video {
-    overflow:hidden;
+    /*overflow:hidden;*/
 }
 
 .footer {
