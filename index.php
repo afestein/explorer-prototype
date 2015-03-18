@@ -42,6 +42,11 @@
                   <p>IT CHANGES EVERYTHING</p>
                 </div>
 
+                <?php
+                    if (empty($_GET['touch'])) {$_GET['touch'] = 'youtube';}
+                    if (empty($_GET['engage'])) {$_GET['engage'] = 'youtube';}
+                ?>
+
                 <?php if ($_GET['touch'] == 'youtube'): ?>
                   <div id="touchVideo"></div>
                 <?php endif; ?>
