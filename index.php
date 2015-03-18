@@ -7,6 +7,12 @@
     <link rel="stylesheet" type="text/css" href="assets/bower_components/fontawesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" type="text/css" href="assets/styles.css"/>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+      <?php
+      if (empty($_GET['touch'])) {$_GET['touch'] = 'youtube';}
+      if (empty($_GET['engage'])) {$_GET['engage'] = 'youtube';}
+      ?>
+
   </head>
   <body>
     <div class="container-fluid">
@@ -41,11 +47,6 @@
                   <div class="playMini"></div>
                   <p>IT CHANGES EVERYTHING</p>
                 </div>
-
-                <?php
-                    if (empty($_GET['touch'])) {$_GET['touch'] = 'youtube';}
-                    if (empty($_GET['engage'])) {$_GET['engage'] = 'youtube';}
-                ?>
 
                 <?php if ($_GET['touch'] == 'youtube'): ?>
                   <div id="touchVideo"></div>
